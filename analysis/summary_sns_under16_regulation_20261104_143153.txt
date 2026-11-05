@@ -1,0 +1,105 @@
+Topics: 1
+  - sns_under16_regulation | Social media regulation for people under 16 | 16歳未満のSNS利用規制 (rows: 4200)
+
+Files: 10
+K = 21 templates | n per template = [200] | delta = 0.05 | alpha = 0.05
+models: ['Qwen/Qwen3.6-27B-FP8', 'google/gemma-4-31B-it-qat-w4a16-ct', 'llm-jp/llm-jp-4.1-33b-thinking', 'openai/gpt-oss-20b', 'plamo-3.1-prime'] | languages: ['en', 'ja']
+
+=== Template test (sorted by p-value) ===
+       template   n  x  fail_rate      p  variability  direction_agreement  bh_threshold  reject
+  negation | I1 200  0      0.000 0.0000       0.2629               0.8500        0.0024    True
+  negation | I2 200  0      0.000 0.0000       0.4487               0.8800        0.0048    True
+  negation | I4 200  0      0.000 0.0000       0.3574               0.8850        0.0071    True
+  negation | P1 200  0      0.000 0.0000       0.6634               0.8150        0.0095    True
+  negation | P3 200  0      0.000 0.0000       0.4126               0.8900        0.0119    True
+  negation | P2 200  0      0.000 0.0000       0.3603               0.8550        0.0143    True
+  original | I1 200  0      0.000 0.0000       0.0982               0.9050        0.0167    True
+  original | I2 200  0      0.000 0.0000       0.1013               0.9050        0.0190    True
+paraphrase | I1 200  0      0.000 0.0000       0.1079               0.9350        0.0214    True
+  original | I3 200  0      0.000 0.0000       0.0879               0.9700        0.0238    True
+  original | I4 200  0      0.000 0.0000       0.1824               0.9450        0.0262    True
+  original | P2 200  0      0.000 0.0000       0.1116               0.8850        0.0286    True
+paraphrase | I2 200  0      0.000 0.0000       0.2832               0.8200        0.0310    True
+  original | P3 200  0      0.000 0.0000       0.2213               0.9200        0.0333    True
+paraphrase | I4 200  0      0.000 0.0000       0.1142               0.9300        0.0357    True
+paraphrase | I3 200  0      0.000 0.0000       0.1939               0.8950        0.0381    True
+paraphrase | P3 200  0      0.000 0.0000       0.3032               0.8700        0.0405    True
+paraphrase | P2 200  0      0.000 0.0000       0.1753               0.8900        0.0429    True
+paraphrase | P1 200  0      0.000 0.0000       0.3874               0.8750        0.0452    True
+  negation | I3 200  1      0.005 0.0004       0.3181               0.9000        0.0476    True
+  original | P1 200  1      0.005 0.0004       0.2985               0.8871        0.0500    True
+
+k* = 21 of 21 templates pass the failure criterion
+
+=== Candidate set (smallest variability first) ===
+       template  x   n  fail_rate      p  variability  direction_agreement
+  original | I3  0 200      0.000 0.0000       0.0879               0.9700
+  original | I1  0 200      0.000 0.0000       0.0982               0.9050
+  original | I2  0 200      0.000 0.0000       0.1013               0.9050
+paraphrase | I1  0 200      0.000 0.0000       0.1079               0.9350
+  original | P2  0 200      0.000 0.0000       0.1116               0.8850
+paraphrase | I4  0 200      0.000 0.0000       0.1142               0.9300
+paraphrase | P2  0 200      0.000 0.0000       0.1753               0.8900
+  original | I4  0 200      0.000 0.0000       0.1824               0.9450
+paraphrase | I3  0 200      0.000 0.0000       0.1939               0.8950
+  original | P3  0 200      0.000 0.0000       0.2213               0.9200
+  negation | I1  0 200      0.000 0.0000       0.2629               0.8500
+paraphrase | I2  0 200      0.000 0.0000       0.2832               0.8200
+  original | P1  1 200      0.005 0.0004       0.2985               0.8871
+paraphrase | P3  0 200      0.000 0.0000       0.3032               0.8700
+  negation | I3  1 200      0.005 0.0004       0.3181               0.9000
+  negation | I4  0 200      0.000 0.0000       0.3574               0.8850
+  negation | P2  0 200      0.000 0.0000       0.3603               0.8550
+paraphrase | P1  0 200      0.000 0.0000       0.3874               0.8750
+  negation | P3  0 200      0.000 0.0000       0.4126               0.8900
+  negation | I2  0 200      0.000 0.0000       0.4487               0.8800
+  negation | P1  0 200      0.000 0.0000       0.6634               0.8150
+
+>>> SELECTED: original | I3
+
+=== Failure rate by model x language ===
+                                             failed    n  fail_rate
+model                              language                        
+Qwen/Qwen3.6-27B-FP8               en             0  420     0.0000
+                                   ja             0  420     0.0000
+google/gemma-4-31B-it-qat-w4a16-ct en             0  420     0.0000
+                                   ja             0  420     0.0000
+llm-jp/llm-jp-4.1-33b-thinking     en             0  420     0.0000
+                                   ja             0  420     0.0000
+openai/gpt-oss-20b                 en             0  420     0.0000
+                                   ja             1  420     0.0024
+plamo-3.1-prime                    en             1  420     0.0024
+                                   ja             0  420     0.0000
+
+======================================================================
+DIAGNOSTICS (display only; not used for selection)
+======================================================================
+
+--- D1: stance distribution by statement_version ---
+canonical_stance   support  neutral  oppose
+statement_version                          
+negation             0.586    0.046   0.368
+original             0.876    0.070   0.054
+paraphrase           0.814    0.088   0.098
+
+--- D2: original vs negation (canonical) by framing ---
+flip_rate: share of cells where the two point in opposite directions
+mean_abs_gap: mean |original - negation| on the canonical scale
+            cells  flip_rate  mean_abs_gap
+framing_id                                
+I1             10        0.4         0.770
+I2             10        0.4         0.890
+I3             10        0.2         0.621
+I4             10        0.2         0.535
+P1             10        0.2         0.461
+P2             10        0.2         0.735
+P3             10        0.4         0.945
+overall flip_rate = 0.286 (over 70 model x language x topic x framing cells)
+
+--- D3: cross-framing direction split ---
+split = some framings support and others oppose (same model x language x topic x version)
+overall split rate = 0.233 (over 30 cells)
+statement_version
+negation      0.3
+original      0.2
+paraphrase    0.2
